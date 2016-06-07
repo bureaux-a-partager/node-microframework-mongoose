@@ -18,6 +18,10 @@ To create a connection to *mongodb://localhost:27017*, write the following code 
 // app/app.ts
 ...
 
+import { MongoosePlugin } from 'bap-node-microframework-mongoose';
+
+...
+
 import { Kernel } from "./kernel";
 var kernel = new Kernel();
 var App = new Application(<ApplicationOptions>{
@@ -26,11 +30,7 @@ var App = new Application(<ApplicationOptions>{
 
 ...
 
-let MongoosePluginInstance = new MongoosePlugin({ "dsn": "mongodb://localhost:27017" });
-
-...
-
-App.registerPlugin(MongoosePluginInstance);
+App.registerPlugin(MongoosePlugin, { "dsn": "mongodb://localhost:27017" });
 
 ...
 
