@@ -5,8 +5,8 @@ var MongoosePlugin = (function () {
     function MongoosePlugin(container, options) {
         this.name = 'mongoose';
         this.instance = Mongoose.connect(options.dsn);
-        container.registerService(this.name, this.instance);
         core_1.Container.setApplicationInstance(container);
+        core_1.Container.registerService(this.name, this.instance);
     }
     MongoosePlugin.prototype.getInstance = function () {
         return this.instance;

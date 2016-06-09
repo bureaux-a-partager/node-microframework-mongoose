@@ -7,8 +7,8 @@ export class MongoosePlugin {
 
     constructor(container, options) {
         this.instance = Mongoose.connect(options.dsn);
-        container.registerService(this.name, this.instance);
         Container.setApplicationInstance(container);
+        Container.registerService(this.name, this.instance);
     }
 
     getInstance() {
